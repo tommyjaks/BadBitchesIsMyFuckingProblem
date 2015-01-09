@@ -1,0 +1,38 @@
+﻿@model Web.Models.UserprofileModel
+
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="Leftrow">
+
+    @foreach (var item in Model.User)
+    {
+        <h2>Stad:</h2>@item.City
+        <br/>
+        <h2>Mail:</h2>@item.Email
+        <br/>
+        <h2>Förnamn:</h2>@item.Firstname
+        <br/>
+        <h2>Efternamn:</h2>@item.Lastname
+        <br/>
+        <h2>Ålder:</h2>@item.Age
+        <br/>
+        <img src="@Url.Content("~/Images/" + @item.img_path)" width="200" height="200"/>
+    }
+
+</div>
+
+
+<div class="Rightrow">
+    
+    @Html.Action("FriendsList", "UserHome")
+
+
+</div>
+
+

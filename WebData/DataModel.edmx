@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DejtingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Friends">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="FriendID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FriendID" Type="int" Nullable="false" />
+          <Property Name="DateRequested" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SenderID" Type="int" />
+          <Property Name="RecieverID" Type="int" />
+          <Property Name="Body" Type="text" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SenderID" Type="int" />
+          <Property Name="RecieverID" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="Age" Type="int" />
+          <Property Name="img_path" Type="nvarchar(max)" />
+          <Property Name="Searchable" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Friends__FriendI__3B75D760">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Friends">
+              <PropertyRef Name="FriendID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Friends__UserID__3A81B327">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Friends">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posts__RecieverI__2C3393D0">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posts__SenderID__2B3F6F97">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Reciev__300424B4">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Sender__2F10007B">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DejtingModelStoreContainer">
+          <EntitySet Name="Friends" EntityType="Self.Friends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Friends__FriendI__3B75D760" Association="Self.FK__Friends__FriendI__3B75D760">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Friends" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Friends__UserID__3A81B327" Association="Self.FK__Friends__UserID__3A81B327">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Friends" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posts__RecieverI__2C3393D0" Association="Self.FK__Posts__RecieverI__2C3393D0">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posts__SenderID__2B3F6F97" Association="Self.FK__Posts__SenderID__2B3F6F97">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Reciev__300424B4" Association="Self.FK__Requests__Reciev__300424B4">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Sender__2F10007B" Association="Self.FK__Requests__Sender__2F10007B">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DejtingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderID" Type="Int32" />
+          <Property Name="RecieverID" Type="Int32" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Reciever" Relationship="DejtingModel.FK__Posts__RecieverI__2C3393D0" FromRole="Post" ToRole="UserInfo" />
+          <NavigationProperty Name="Sender" Relationship="DejtingModel.FK__Posts__SenderID__2B3F6F97" FromRole="Post" ToRole="UserInfo" />
+          </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderID" Type="Int32" />
+          <Property Name="RecieverID" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="UserInfo" Relationship="DejtingModel.FK__Requests__Reciev__300424B4" FromRole="Request" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo1" Relationship="DejtingModel.FK__Requests__Sender__2F10007B" FromRole="Request" ToRole="UserInfo" />
+          </EntityType>
+        <EntityContainer Name="DejtingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="Requests" EntityType="Self.Request" />
+          <EntitySet Name="Friends" EntityType="DejtingModel.Friend" />
+          <EntitySet Name="UserInfoes" EntityType="DejtingModel.UserInfo" />
+          <AssociationSet Name="FK__Friends__FriendI__3B75D760" Association="DejtingModel.FK__Friends__FriendI__3B75D760">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Friend" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Friends__UserID__3A81B327" Association="DejtingModel.FK__Friends__UserID__3A81B327">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Friend" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posts__RecieverI__2C3393D0" Association="DejtingModel.FK__Posts__RecieverI__2C3393D0">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Posts__SenderID__2B3F6F97" Association="DejtingModel.FK__Posts__SenderID__2B3F6F97">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Reciev__300424B4" Association="DejtingModel.FK__Requests__Reciev__300424B4">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__Sender__2F10007B" Association="DejtingModel.FK__Requests__Sender__2F10007B">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="FriendID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FriendID" Type="Int32" Nullable="false" />
+          <Property Name="DateRequested" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserInfo" Relationship="DejtingModel.FK__Friends__FriendI__3B75D760" FromRole="Friend" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo1" Relationship="DejtingModel.FK__Friends__UserID__3A81B327" FromRole="Friend" ToRole="UserInfo" />
+          </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="img_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Searchable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Friends" Relationship="DejtingModel.FK__Friends__FriendI__3B75D760" FromRole="UserInfo" ToRole="Friend" />
+          <NavigationProperty Name="Friends1" Relationship="DejtingModel.FK__Friends__UserID__3A81B327" FromRole="UserInfo" ToRole="Friend" />
+          <NavigationProperty Name="Posts" Relationship="DejtingModel.FK__Posts__RecieverI__2C3393D0" FromRole="UserInfo" ToRole="Post" />
+          <NavigationProperty Name="Posts1" Relationship="DejtingModel.FK__Posts__SenderID__2B3F6F97" FromRole="UserInfo" ToRole="Post" />
+          <NavigationProperty Name="Requests" Relationship="DejtingModel.FK__Requests__Reciev__300424B4" FromRole="UserInfo" ToRole="Request" />
+          <NavigationProperty Name="Requests1" Relationship="DejtingModel.FK__Requests__Sender__2F10007B" FromRole="UserInfo" ToRole="Request" />
+        </EntityType>
+        <Association Name="FK__Friends__FriendI__3B75D760">
+          <End Type="DejtingModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="DejtingModel.Friend" Role="Friend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Friend">
+              <PropertyRef Name="FriendID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Friends__UserID__3A81B327">
+          <End Type="DejtingModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="DejtingModel.Friend" Role="Friend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Friend">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posts__RecieverI__2C3393D0">
+          <End Type="DejtingModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+          <End Type="DejtingModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Posts__SenderID__2B3F6F97">
+          <End Type="DejtingModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+          <End Type="DejtingModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Reciev__300424B4">
+          <End Type="DejtingModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+          <End Type="DejtingModel.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__Sender__2F10007B">
+          <End Type="DejtingModel.UserInfo" Role="UserInfo" Multiplicity="0..1" />
+          <End Type="DejtingModel.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="SenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DejtingModelStoreContainer" CdmEntityContainer="DejtingEntities">
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="DejtingModel.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+                <ScalarProperty Name="RecieverID" ColumnName="RecieverID" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="DejtingModel.Request">
+              <MappingFragment StoreEntitySet="Requests">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+                <ScalarProperty Name="RecieverID" ColumnName="RecieverID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Friends">
+            <EntityTypeMapping TypeName="DejtingModel.Friend">
+              <MappingFragment StoreEntitySet="Friends">
+                <ScalarProperty Name="DateRequested" ColumnName="DateRequested" />
+                <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="DejtingModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Searchable" ColumnName="Searchable" />
+                <ScalarProperty Name="img_path" ColumnName="img_path" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

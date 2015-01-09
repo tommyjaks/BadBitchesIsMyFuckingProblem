@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>    
+    <link rel="Stylesheet" href="@Href("~/Content/Site.css")" />
+    
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p>
+                    Hello <strong>@Html.Encode(User.Identity.Name)</strong>
+                    @Html.ActionLink("Home", "Index", "Home")
+                    @Html.ActionLink("Log Out", "LogOut", "Account")
+                    @Html.ActionLink("Search", "Search", "UserHome")
+                    @Html.ActionLink("My Profile", "MyProfile", "UserHome")
+                    @Html.ActionLink("Edit Profile", "EditProfile", "Image")
+                </p>
+            }
+            else
+            {
+
+            @*Knapptext, cshtml-fil, Övermapp*@
+                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink("Login", "Login", "Account")
+                @Html.ActionLink("Register", "Create", "UserInfo")
+            }
+        </li>
+
+    </div>
+    @RenderBody()
+</div>
+</body>
+</html>

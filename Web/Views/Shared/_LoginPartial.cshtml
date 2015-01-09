@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="Stylesheet" href="@Href("~/Content/Site.css")" />
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <li>
+                @*Knapptext, cshtml-fil, Övermapp*@
+                @Html.ActionLink("Home", "Index", "Home")
+              
+            </li>
+
+        </div>
+        @RenderBody()
+    </div>
+</body>
+</html>

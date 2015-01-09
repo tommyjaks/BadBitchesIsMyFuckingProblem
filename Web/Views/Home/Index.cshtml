@@ -1,0 +1,13 @@
+﻿@model Web.Models.HomeIndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+    @foreach (var user in Model.Users)
+    {
+        @user.Firstname 
+       
+    <a href='@(Url.Action("UserProfile", "UserHome", new { username = @user.Username }))'><b>@user.Lastname</b></a>
+    }

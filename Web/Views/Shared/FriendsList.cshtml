@@ -1,0 +1,14 @@
+﻿@model Web.Models.UserprofileModel
+
+@{
+    ViewBag.Title = "Friendlist";
+    Layout = null;
+}
+
+<h2>Friends</h2>
+@foreach (var friend in Model.User)
+{
+    <div id="Friendslist">
+        <a href='@(Url.Action("UserProfile", "UserHome", new { username = @friend.Username }))'><b>@friend.Firstname</b></a>
+    </div>
+}
