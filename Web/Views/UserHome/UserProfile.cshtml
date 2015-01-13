@@ -1,39 +1,68 @@
-﻿@model Web.Models.UserprofileModel
+﻿@using WebData
+@model Web.Models.UserprofileModel
 
 @{
     ViewBag.Title = "UserProfile";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 
-    <div class="Leftrow">
-        <h2>
-            @foreach (var item in Model.User)
+<div id="loggedInContent">
+
+    <div id="profile">
+
+        @foreach (var item in Model.User)
+        {
+            if (Model.CheckIfVisitingOwnProfile(@item.Username))
             {
-                <h2>Stad:</h2>@item.City <br />
-                <h2>Mail:</h2>@item.Email <br />
-                <h2>Förnamn:</h2>@item.Firstname <br />
-                <h2>Efternamn:</h2>@item.Lastname <br />
-                <h2>Ålder:</h2>@item.Age <br />
-                <img src="@Url.Content("~/Images/"+@item.img_path)" width="200" height="200" />
+                {Response.Redirect("~/UserHome/MyProfile");}
             }
-        </h2>
+
+            else if (Model.CheckIfFriends(@item.ID) == false)
+            {
+                using (Html.BeginForm("ChangeToIDAndPassToModel", "UserHome", new { senderUsername = User.Identity.Name, receiverUsername = item.Username }))
+                {
+                        <input type="submit" value="Add friend"/>
+                    }
+                }
+
+                <img src="@Url.Content("~/Images/" + @item.img_path)" width="200" height="200"/>
+
+
+                <h4>Förnamn:</h4>
+                <p class="nameText">
+                    @item.Firstname
+                </p>
+                <h4>Efternamn:</h4>
+                <p class="nameText">
+                    @item.Lastname
+                </p>
+                <h4>Ålder:</h4>
+                <p class="nameText">
+                    @item.Age
+                </p>
+                <h4>Stad:</h4>
+                <p class="nameText">
+                    @item.City
+                </p>
+                <h4>Mail:</h4>
+                <p class="nameText">
+                    @item.Email
+                </p>
+            }
+        
     </div>
-    <div class="Rightrow">
-        <h2>Right row</h2>
+    <div id="profileContent">
+        @Html.Partial("PostView",
+    new Post
+    {
+        RecieverID = UserRepository.
+        GetUserId(Request.QueryString["Username"])
+    })
     </div>
-
-<div id="ajaxDiv"></div>
-
-<div>
-
-
-    <textarea id="recievedPostTA"></textarea>
-    <script>
-            $.getJSON("/Api/Posts",  function(data) {
-                window.Console.log(data);
-            });
-
-    </script>
-
 </div>
+  
+
+    
+
+    

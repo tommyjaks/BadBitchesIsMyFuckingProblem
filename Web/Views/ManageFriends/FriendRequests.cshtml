@@ -1,0 +1,27 @@
+﻿@model  Web.Models.FriendRequestReceiverModel
+
+@{
+    ViewBag.Title = "FriendRequests";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<div id="loggedInContent">
+    <div id="profile">
+        <h2>Friendrequests.</h2>
+        @foreach (var item in Model.requests)
+        {
+
+            @item.Firstname
+            @: @item.Lastname
+
+
+            using (Html.BeginForm("AcceptRequest", "ManageFriends", new { currUser = User.Identity.Name, senderID = @item.ID }))
+            {
+                <input type="submit" value="Accept" />
+            }@:
+        using (Html.BeginForm("DenyRequest", "ManageFriends", new { currUser = User.Identity.Name, senderID = @item.ID }))
+        {
+            <input type="submit" value="Deny" />
+        }
+        }
+    </div>
+</div>

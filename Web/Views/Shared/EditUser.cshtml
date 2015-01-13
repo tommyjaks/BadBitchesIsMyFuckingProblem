@@ -1,0 +1,18 @@
+﻿@model Web.Models.EditUserModel
+
+@ViewBag.Message
+
+@Html.ValidationMessageFor(model => model.searchable)
+<br />
+@Html.ValidationMessageFor(model => model.firstname)
+<br />
+@Html.ValidationMessageFor(model => model.lastname)
+<br />
+@Html.ValidationMessageFor(model => model.city)
+<br />
+@Html.ValidationMessageFor(model => model.email)
+<br />
+@Html.ValidationMessageFor(model => model.password)
+<br />
+@Html.ValidationMessageFor(model => model.username)
+<br />

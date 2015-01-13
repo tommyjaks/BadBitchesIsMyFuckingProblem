@@ -2,13 +2,15 @@
 
 @{
     ViewBag.Title = "Search";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h2>Search</h2>
+<div id="profile">
+    <h2>Search</h2>
 
-<div id="search-form">
-    @Html.Action("Search", "Search");
-</div>
-<div id="search-results">
+    <div id="search-form">
+        @Html.Action("Search", "Search");
+    </div>
+    <div id="search-results">
+    </div>
 </div>

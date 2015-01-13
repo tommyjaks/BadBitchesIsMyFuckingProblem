@@ -1,0 +1,73 @@
+﻿@using System.Drawing
+@using System.Resources
+@using Resources
+
+@{
+    Layout = null;
+}
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+
+
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <title>Lovefinder.com</title>
+</head>
+<body>
+    <div id="lang">
+      
+            <a href="@Url.Action("ChangeCulture", "UserHome", new {lang = "en"})">
+                <img src="~/Content/Images/UK_Flag.png" />
+            </a>
+           
+            <a href="@Url.Action("ChangeCulture", "UserHome", new {lang = "sv"})">
+                <img src="~/Content/Images/sverige-flagga.png" />
+            </a>
+        
+    </div>
+    <div id="logo">
+        <img src="~/Content/images/logo.png" >
+    </div>
+
+    <div id="menu">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p class="p">
+
+                Hello <strong>@Html.Encode(User.Identity.Name)</strong>!&nbsp;&nbsp;
+                @Html.ActionLink("Home", "Index", "Home", null, new {@class = "p"})&nbsp;&nbsp;
+                @Html.ActionLink("Search", "Search", "UserHome", null, new {@class = "p"})&nbsp;&nbsp;
+                @Html.ActionLink("My Profile", "MyProfile", "UserHome", null, new {@class = "p"})&nbsp;&nbsp;
+                @Html.ActionLink("Edit Profile", "EditProfile", "Image", null, new {@class = "p"})&nbsp;&nbsp;
+                @Html.ActionLink("Friend Requests", "FriendRequests", "ManageFriends", null, new { @class = "p" })&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Log Out", "LogOut", "Account", null, new { @class = "p" })
+
+            </p>
+           
+        }
+        else
+        {
+            <span>
+                @Html.ActionLink(Home.Homehem, "Index", "Home",null, new { @class = "p" })
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink(Home.Login, "Login", "Account", null, new {@class = "p"})
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                @Html.ActionLink(Home.Register, "Create", "UserInfo", null, new {@class = "p"})
+            </span>
+        }
+
+
+
+    </div>
+
+    @RenderBody()
+</body>
+</html>
+

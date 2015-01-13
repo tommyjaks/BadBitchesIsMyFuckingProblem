@@ -174,6 +174,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ManageFriendsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserHomeController.cs" />
@@ -183,12 +184,26 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddFriendPairModel.cs" />
+    <Compile Include="Models\EditUserModel.cs" />
+    <Compile Include="Models\FriendRequestModel.cs" />
+    <Compile Include="Models\FriendRequestReceiverModel.cs" />
     <Compile Include="Models\HomeIndexViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\UserIndexViewModel.cs" />
     <Compile Include="Models\UserprofileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Home.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Home.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Home.sv.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Home.sv.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +213,14 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\bg2.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\sverige-flagga.png" />
+    <Content Include="Content\images\UK_Flag.png" />
+    <Content Include="Content\loggedIn.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\images\memberbg.png" />
     <Content Include="Content\Profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -256,7 +279,6 @@
     <Content Include="Views\Shared\_SearchResultsPartial.cshtml" />
     <Content Include="Views\UserHome\MyProfile.cshtml" />
     <Content Include="Views\Image\EditProfile.cshtml" />
-    <Content Include="Views\Shared\Upload.cshtml" />
     <Content Include="Views\UserHome\UserProfile.cshtml" />
     <Content Include="Views\Userinfo\Create.cshtml" />
     <Content Include="Views\Userinfo\Delete.cshtml" />
@@ -264,6 +286,15 @@
     <Content Include="Views\Userinfo\Edit.cshtml" />
     <Content Include="Views\Userinfo\Index.cshtml" />
     <Content Include="Views\Shared\FriendsList.cshtml" />
+    <Content Include="Views\Shared\EditUser.cshtml" />
+    <Content Include="Views\Shared\UploadImage.cshtml" />
+    <Content Include="Views\Shared\ChangeToIDAndPassToModel.cshtml" />
+    <Content Include="Views\ManageFriends\FriendRequests.cshtml" />
+    <Content Include="Views\Shared\HandleRequest.cshtml" />
+    <Content Include="Views\Shared\PostView.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
+    <Content Include="Views\Shared\LayoutPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebData\WebData.csproj">
@@ -281,6 +312,18 @@
   <ItemGroup>
     <Folder Include="Views\Search\" />
     <Folder Include="Views\WallPost\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Home.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Home.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Home.sv.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Home.sv.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

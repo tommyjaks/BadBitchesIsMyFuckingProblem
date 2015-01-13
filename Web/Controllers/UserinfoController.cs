@@ -17,6 +17,11 @@ namespace Web.Controllers
         // GET: Userinfo
         public ActionResult Index()
         {
+            string userName = System.Web.HttpContext.Current.User.Identity.Name;
+            int userID = UserRepository.GetUserId(userName);
+
+            ViewData["CheckIfFriendRequest"] = UserRepository.CheckIfUserHaveFriendRequest(userID);
+
             return View(db.UserInfoes.ToList());
         }
 

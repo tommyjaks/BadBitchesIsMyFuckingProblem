@@ -1,0 +1,10 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background: #FFF;
+}
+#loggedInContent {
+    height: 600px;
+    width: 100%;
+    background: white;
+}

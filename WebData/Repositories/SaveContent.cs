@@ -8,20 +8,31 @@ namespace WebData.Repositories
 {
     public class SaveContent
     {
-        public void UpdateUser(string currUsername, string file, string firstname, string lastname, string city, string email, string password, string username, bool searchable)
+        public void UpdateUser(string currUsername, UserInfo userinfo)
         {
             DejtingEntities db = new DejtingEntities();
 
             UserInfo user = db.UserInfoes.Single(x => x.Username == currUsername);
 
-            user.img_path = file;
-            user.Firstname = firstname;
-            user.Lastname = lastname;
-            user.City = city;
-            user.Email = email;
-            user.Password = password;
-            user.Username = username;
-            user.Searchable = searchable;
+            user.img_path = userinfo.img_path;
+            user.Firstname = userinfo.Firstname;
+            user.Lastname = userinfo.Lastname;
+            user.City = userinfo.City;
+            user.Email = userinfo.Email;
+            user.Password = userinfo.Password;
+            user.Username = userinfo.Username;
+            user.Searchable = userinfo.Searchable;
+
+            db.SaveChanges();
+        }
+
+        public void ChangeImage(string currUsername, string imgpath)
+        {
+            DejtingEntities db = new DejtingEntities();
+
+            UserInfo user = db.UserInfoes.Single(x => x.Username == currUsername);
+
+            user.img_path = imgpath;
 
             db.SaveChanges();
         }
