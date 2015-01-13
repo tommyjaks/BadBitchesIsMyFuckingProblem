@@ -44,6 +44,15 @@
             @Html.Action("FriendsList", "UserHome")
         </div>
     </div>
+
+    <div id="profileContent">
+        @Html.Partial("PostView",
+    new Post
+    {
+        RecieverID = UserRepository.
+        GetUserId(User.Identity.Name)
+    })
+    </div>
 </div>
 
             

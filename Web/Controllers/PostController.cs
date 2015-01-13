@@ -68,10 +68,6 @@ namespace Web.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = post.ID }, post);
         }
-
-
-
-
     }
 
 

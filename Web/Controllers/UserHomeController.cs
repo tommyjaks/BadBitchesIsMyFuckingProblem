@@ -71,8 +71,16 @@ namespace Web.Controllers
 
         public ActionResult UserProfile(string username)
         {
+            
+
             if (User.Identity.IsAuthenticated == true)
             {
+                UserRepository rep = new UserRepository();
+                string userName = System.Web.HttpContext.Current.User.Identity.Name;
+                int userID = UserRepository.GetUserId(userName);
+
+                ViewData["CheckIfFriendRequest"] = rep.CheckIfUserHaveFriendRequest(userID);
+
                 var model = new UserprofileModel();
 
                 model.User = WebData.UserRepository.GetLoggedInUser(username);
@@ -81,7 +89,7 @@ namespace Web.Controllers
             }
             else
             {
-
+ 
                 return RedirectToAction("Create", "UserInfo");
             }
         }

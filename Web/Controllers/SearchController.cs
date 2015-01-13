@@ -25,6 +25,8 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Search(string userName)
         {
+
+
             UserRepository rep = new UserRepository();
 
             if (userName != null)
@@ -37,6 +39,11 @@ namespace Web.Controllers
                     {
                         Usernames = searchlist
                     };
+
+                    string currUser = System.Web.HttpContext.Current.User.Identity.Name;
+                    int userID = UserRepository.GetUserId(currUser);
+
+                    ViewData["CheckIfFriendRequest"] = rep.CheckIfUserHaveFriendRequest(userID);
 
                     return PartialView("_SearchResultsPartial", model);
                 }

@@ -63,6 +63,11 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult EditUser(EditUserModel model)
         {
+            UserRepository rep = new UserRepository();
+            string userName = System.Web.HttpContext.Current.User.Identity.Name;
+            int userID = UserRepository.GetUserId(userName);
+
+            ViewData["CheckIfFriendRequest"] = rep.CheckIfUserHaveFriendRequest(userID);
             
             if (ModelState.IsValid)
                 {
