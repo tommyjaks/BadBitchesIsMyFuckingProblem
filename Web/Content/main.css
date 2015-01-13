@@ -49,16 +49,6 @@ body{
     text-decoration: none;
 	color: #FFF;
 }
-#membersText {
-    font-family: verdana;
-    text-decoration: none;
-    color: #FFF;
-    font-size: 50px;
-    margin-top: 320px;
-    padding: 0;
-    margin-bottom: -9.2px;
-    opacity: 0.6;
-}
 .nameText {
     font-family: verdana;
     color: #3b3b3b;
@@ -86,6 +76,16 @@ a, a:hover{
     transition-duration: 2.5s;
     transition-timing-function: ease;
 }
+#membersText {
+    font-family: verdana;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 50px;
+    margin-top: 290px;
+    padding: 0;
+    margin-bottom: -9.2px;
+    opacity: 0.6;
+}
 #members{
     padding-top: 0;
     margin-top: 0;
@@ -103,7 +103,7 @@ a, a:hover{
 	height: 150px;
 	width: 100px;
 	padding-top: 40px;
-	padding-left: 10px;
+	padding-left: 17px;
 	padding-right: 10px;
     float: left;
 }
