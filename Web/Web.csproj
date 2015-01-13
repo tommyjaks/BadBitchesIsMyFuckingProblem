@@ -173,7 +173,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\HandleUserController.cs" />
     <Compile Include="Controllers\ManageFriendsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -266,18 +266,19 @@
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Shared\_SearchResultsPartial.cshtml" />
     <Content Include="Views\UserHome\MyProfile.cshtml" />
-    <Content Include="Views\Account\EditProfile.cshtml" />
+    <Content Include="Views\HandleUser\EditProfile.cshtml" />
     <Content Include="Views\UserHome\UserProfile.cshtml" />
     <Content Include="Views\Userinfo\Create.cshtml" />
     <Content Include="Views\Shared\FriendsList.cshtml" />
-    <Content Include="Views\Shared\EditUser.cshtml" />
+    <Content Include="Views\HandleUser\EditUser.cshtml" />
     <Content Include="Views\Shared\ChangeToIDAndPassToModel.cshtml" />
     <Content Include="Views\ManageFriends\FriendRequests.cshtml" />
     <Content Include="Views\Shared\HandleRequest.cshtml" />
     <Content Include="Views\Shared\PostView.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Shared\LayoutPartial.cshtml" />
-    <Content Include="Views\Account\RegisterUser.cshtml" />
+    <Content Include="Views\HandleUser\RegisterUser.cshtml" />
+    <Content Include="Views\HandleUser\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebData\WebData.csproj">

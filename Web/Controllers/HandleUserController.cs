@@ -14,7 +14,7 @@ using WebData;
 
 namespace Web.Controllers
 {
-    public class ImageController : Controller
+    public class HandleUserController : Controller
     {
         // GET: Image
         public ActionResult EditProfile()
