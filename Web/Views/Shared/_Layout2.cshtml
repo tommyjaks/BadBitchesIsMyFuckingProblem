@@ -20,17 +20,7 @@
     <title>Lovefinder.com</title>
 </head>
 <body>
-    <div id="lang">
-      
-            <a href="@Url.Action("ChangeCulture", "UserHome", new {lang = "en"})">
-                <img src="~/Content/Images/UK_Flag.png" />
-            </a>
-           
-            <a href="@Url.Action("ChangeCulture", "UserHome", new {lang = "sv"})">
-                <img src="~/Content/Images/sverige-flagga.png" />
-            </a>
-        
-    </div>
+    
     <div id="logo">
         <img src="~/Content/images/logo.png" >
     </div>
@@ -58,13 +48,24 @@
         else
         {
             <span>
-                @Html.ActionLink(Home.Homehem, "Index", "Home",null, new { @class = "p" })
+                @Html.ActionLink(Home.Homehem, "Index", "Home", null, new {@class = "p"})
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 @Html.ActionLink(Home.Login, "Login", "Account", null, new {@class = "p"})
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 @Html.ActionLink(Home.Register, "Create", "UserInfo", null, new {@class = "p"})
             </span>
+    <div id="lang">
+
+        <a href="@Url.Action("ChangeCulture", "UserHome", new {lang = "en"})">
+            <img src="~/Content/Images/UK_Flag.png" />
+        </a>
+
+        <a href="@Url.Action("ChangeCulture", "UserHome", new {lang = "sv"})">
+            <img src="~/Content/Images/sverige-flagga.png" />
+        </a>
+
+    </div>
         }
 
 
