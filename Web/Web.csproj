@@ -215,7 +215,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\bg.jpg" />
-    <Content Include="Content\images\bg2.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\sverige-flagga.png" />
     <Content Include="Content\images\UK_Flag.png" />
