@@ -7,6 +7,7 @@ html {
 }
 h2 {
     font-family: verdana;
+    color: #2B2B2B;
 }
 h4 {
     font-family: verdana;
@@ -38,9 +39,6 @@ body{
 }
 #loginForm {
     margin-left: 90px;
-}
-#firstname {
-    position: relative;
 }
 .p{
 	font-family: verdana;
@@ -113,10 +111,7 @@ a, a:hover{
 	padding-right: 10px;
     float: left;
 }
-/*#membersimg .p {
-    text-align: center;
-   
-}*/
+
 img{
 	max-width:100%;
 max-height:100%;
@@ -135,6 +130,13 @@ max-height:100%;
 #profile {
     float: Left;
     margin-left: 90px;
+    margin-top: 10px;
+    
+
+}
+#profile2 {
+    float: Left;
+   
     margin-top: 10px;
     
 
