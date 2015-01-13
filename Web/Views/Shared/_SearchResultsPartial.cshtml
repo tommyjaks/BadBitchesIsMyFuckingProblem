@@ -12,8 +12,10 @@
     {
         foreach (var result in Model.Usernames)
         {
-            @result.Firstname @: @result.Lastname
-            <br />
+            <a href='@(Url.Action("UserProfile", "UserHome", new { username = @result.Username }))'>
+                @result.Firstname  &nbsp;@result.Lastname
+            </a>
+              
         }
     }
 </div>

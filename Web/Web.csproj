@@ -257,46 +257,27 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\UserHome\UserIndex.cshtml" />
     <Content Include="Views\Account\LogOut.cshtml" />
     <Content Include="Views\UserHome\Search.cshtml" />
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Shared\_SearchResultsPartial.cshtml" />
     <Content Include="Views\UserHome\MyProfile.cshtml" />
-    <Content Include="Views\Image\EditProfile.cshtml" />
+    <Content Include="Views\Account\EditProfile.cshtml" />
     <Content Include="Views\UserHome\UserProfile.cshtml" />
     <Content Include="Views\Userinfo\Create.cshtml" />
-    <Content Include="Views\Userinfo\Delete.cshtml" />
-    <Content Include="Views\Userinfo\Details.cshtml" />
-    <Content Include="Views\Userinfo\Edit.cshtml" />
-    <Content Include="Views\Userinfo\Index.cshtml" />
     <Content Include="Views\Shared\FriendsList.cshtml" />
     <Content Include="Views\Shared\EditUser.cshtml" />
-    <Content Include="Views\Shared\UploadImage.cshtml" />
     <Content Include="Views\Shared\ChangeToIDAndPassToModel.cshtml" />
     <Content Include="Views\ManageFriends\FriendRequests.cshtml" />
     <Content Include="Views\Shared\HandleRequest.cshtml" />
     <Content Include="Views\Shared\PostView.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
-    <Content Include="Views\Shared\_Layout3.cshtml" />
     <Content Include="Views\Shared\LayoutPartial.cshtml" />
-    <Content Include="Views\Image\RegisterUser.cshtml" />
+    <Content Include="Views\Account\RegisterUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebData\WebData.csproj">
@@ -311,10 +292,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Search\" />
-    <Folder Include="Views\WallPost\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\Home.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
