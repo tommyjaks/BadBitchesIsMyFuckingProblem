@@ -1,9 +1,9 @@
 html {
-  background: url(images/bg.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 h2 {
     font-family: verdana;
@@ -13,13 +13,11 @@ h4 {
     font-family: verdana;
     padding: 0;
     margin: 7px 0px 7px 0px;
-
-
 }
 .form-group {
-      font-family: verdana;
+    font-family: verdana;
     color: #3b3b3b;
-      padding: 0;
+    padding: 0;
     margin: 10px;
     margin-left: 0;
 }
@@ -50,8 +48,6 @@ body{
 	font-family: verdana;
     text-decoration: none;
 	color: #FFF;
-  
-	
 }
 #membersText {
     font-family: verdana;
@@ -66,33 +62,30 @@ body{
 .nameText {
     font-family: verdana;
     color: #3b3b3b;
-      padding: 0;
+    padding: 0;
     margin: 0;
 }
 a:hover{
 	color: #CCC;
-     text-decoration: underline;
+    text-decoration: underline;
 }
-a, a:hover{
-   
--webkit-transition-property: background color;
-  -webkit-transition-duration: 2.5s;
-  -webkit-transition-timing-function: ease;
-  -moz-transition-property: background color;
-  -moz-transition-duration: 2.5s;
-  -moz-transition-timing-function: ease;
-  -o-transition-property: background color;
-  -o-transition-duration: 2.5s;
-  -o-transition-timing-function: ease;
-  -ms-transition-property: background color;
-  -ms-transition-duration: 2.5s;
-  -ms-transition-timing-function: ease;
-  transition-property: background color;
-  transition-duration: 2.5s;
-  transition-timing-function: ease;
+a, a:hover{ 
+    -webkit-transition-property: background color;
+    -webkit-transition-duration: 2.5s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-property: background color;
+    -moz-transition-duration: 2.5s;
+    -moz-transition-timing-function: ease;
+    -o-transition-property: background color;
+    -o-transition-duration: 2.5s;
+    -o-transition-timing-function: ease;
+    -ms-transition-property: background color;
+    -ms-transition-duration: 2.5s;
+    -ms-transition-timing-function: ease;
+    transition-property: background color;
+    transition-duration: 2.5s;
+    transition-timing-function: ease;
 }
-
-
 #members{
     padding-top: 0;
     margin-top: 0;
@@ -100,9 +93,6 @@ a, a:hover{
 	padding-left: 0px;
 	height: 200px;
 	width: 650px;
-  
-
-
 	background: url(images/memberbg.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -117,18 +107,15 @@ a, a:hover{
 	padding-right: 10px;
     float: left;
 }
-
 img{
 	max-width:100%;
-max-height:100%;
+    max-height:100%;
 }
-
 #loggedInContent {
     margin-top:45px;
     height: 530px;
     width: 100%;
-    background: white;
-       
+    background: white;    
     border-radius: 2px;
     box-shadow: 10px 10px 15px #3D352A;
     opacity: 0.8;
@@ -137,15 +124,10 @@ max-height:100%;
     float: Left;
     margin-left: 90px;
     margin-top: 10px;
-    
-
 }
 #profile2 {
     float: Left;
-   
     margin-top: 10px;
-    
-
 }
 #profileContent {
     float: left;
