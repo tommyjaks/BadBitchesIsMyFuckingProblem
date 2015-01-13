@@ -17,6 +17,12 @@ namespace Web.Controllers
             var model = new HomeIndexViewModel();
             model.Users = UserRepository.GetFiveExampleUsers();
 
+            UserRepository rep = new UserRepository();
+            string userName = System.Web.HttpContext.Current.User.Identity.Name;
+            int userID = UserRepository.GetUserId(userName);
+
+            ViewData["CheckIfFriendRequest"] = rep.CheckIfUserHaveFriendRequest(userID);
+
             return View(model);
         }
 

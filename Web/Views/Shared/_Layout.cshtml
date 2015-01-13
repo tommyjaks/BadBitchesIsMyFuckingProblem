@@ -21,6 +21,13 @@
                     @Html.ActionLink("Search", "Search", "UserHome")
                     @Html.ActionLink("My Profile", "MyProfile", "UserHome")
                     @Html.ActionLink("Edit Profile", "EditProfile", "Image")
+                    @Html.ActionLink("Friend Requests", "FriendRequests", "ManageFriends")
+                    
+
+                    @*@if ((bool)ViewData["CheckIfFriendRequest"] == true)
+                    {
+                        <input type="button" name="btn" value="New Friend Request!" />
+                    }*@
                 </p>
             }
             else
@@ -32,7 +39,7 @@
                 @Html.ActionLink("Register", "Create", "UserInfo")
             }
         </li>
-
+        
     </div>
     @RenderBody()
 </div>

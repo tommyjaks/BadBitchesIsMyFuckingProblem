@@ -1,13 +1,28 @@
 ﻿@model Web.Models.HomeIndexViewModel
+@using Resources;
 
 @{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
+<p id="membersText">@Home.members</p>
+<div id="members">
 
     @foreach (var user in Model.Users)
     {
-        @user.Firstname 
-       
-    <a href='@(Url.Action("UserProfile", "UserHome", new { username = @user.Username }))'><b>@user.Lastname</b></a>
+        <div id="membersimg">
+            <a href='@(Url.Action("UserProfile", "UserHome", new {username = @user.Username}))'>
+
+                <img src="@Url.Content("~/Images/" + @user.img_path)">
+
+            </a>
+
+            <p class="nameText"> @(user.Firstname), @user.Age.</p>
+        </div>
+
+
     }
+
+
+</div>
+

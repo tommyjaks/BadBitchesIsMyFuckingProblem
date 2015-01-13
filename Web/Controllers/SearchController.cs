@@ -13,6 +13,12 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult Search()
         {
+            UserRepository rep = new UserRepository();
+            string userName = System.Web.HttpContext.Current.User.Identity.Name;
+            int userID = UserRepository.GetUserId(userName);
+
+            ViewData["CheckIfFriendRequest"] = rep.CheckIfUserHaveFriendRequest(userID);
+
             return PartialView("_SearchFormPartial");
         }
 

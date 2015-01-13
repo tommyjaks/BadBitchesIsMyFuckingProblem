@@ -9,18 +9,18 @@ namespace WebData.Repositories
 {
     public class PostRepository
     {
-        public List<Post> GetSpecificUserPosts(string user)
+        public List<string> GetSpecificUserPosts(int user)
         {
             using (var context = new DejtingEntities())
             {
                 var result = context.Posts
-                    .Where(x => x.Reciever.Username == user)
-                    .OrderByDescending(x => x.Date)
+                    .Where(x => x.RecieverID == user)
+                    .Select(x => x.Body)
                     .ToList();
 
-
-
                 return result;
+
+
             }
 
 

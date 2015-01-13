@@ -1,0 +1,92 @@
+﻿@model WebData.Post
+
+
+@{
+
+    Layout = null;
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+
+<h2>Create a new message</h2>
+
+<div>
+    <label>Message</label>
+    @Html.TextArea("Message")
+
+
+
+    @Html.HiddenFor(m => m.RecieverID, "RecieverID")
+
+</div>
+
+<div>
+    <button id="btnSend">Send</button>
+
+</div>
+<div>
+    <button id="btnGetPosts">Show Posts</button>
+
+</div>
+
+<div id="userPosts"></div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#btnGetPosts').click(function () {
+
+            var recieverID = $('#RecieverID').val();
+
+            $.ajax({
+                url: "/api/Posts/GetPosts",
+                data: { userID: recieverID },
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: function (data) {
+                    if (data.length > 3) {  // if the array has elements then append them
+                        $('#userPosts').append(data).html();
+                    } else {  // If no elements show the alert.
+                        alert("There are no posts for this user, please make an anonymus post today!");
+                    }
+
+                }
+            });
+        });
+    });
+
+
+
+
+    $("#btnSend").click(function () {
+
+
+        var messageInfo = {
+            "Body": $("#Message").val(),
+            "RecieverID": $("#RecieverID").val()
+
+        };
+
+        $.ajax({
+            type: "POST",
+            url: '/api/Posts/AddPost',
+            data: JSON.stringify(messageInfo),
+            contentType: "application/json;charset=utf-8",
+            processData: true,
+            success: function (data, status, xhr) {
+                alert("Your message has been posted, what a " + status);
+            },
+            error: function (xhr) {
+                alert(xhr.responseText);
+            }
+        });
+    });
+
+
+</script>
+
+
+

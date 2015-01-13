@@ -1,35 +1,68 @@
-﻿
+﻿@model Web.Models.EditUserModel
 
 @{
     ViewBag.Title = "EditProfile";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+<div id="loggedInContent">
+   
+        <div id="profile">
+            <h2>Edit your profile.</h2>
+            <br />
+            @using (Html.BeginForm("EditUser", "Image"))
+            {
+                <p class="nameText">
+                    @Html.LabelFor(model => model.searchable)
+                    @Html.EditorFor(model => model.searchable)
+                    @Html.ValidationMessageFor(model => model.searchable)
+                    <br /> <br />
+                    @Html.LabelFor(model => model.firstname)
+                    @Html.EditorFor(model => model.firstname)
+                    @Html.ValidationMessageFor(model => model.firstname)
+                    <br /> <br />
+                    @Html.LabelFor(model => model.lastname)
+                    @Html.EditorFor(model => model.lastname)
+                    @Html.ValidationMessageFor(model => model.lastname)
+                    <br /> <br />
+                    @Html.LabelFor(model => model.city)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.EditorFor(model => model.city)
+                    @Html.ValidationMessageFor(model => model.city)
+                    <br /> <br />
+                    @Html.LabelFor(model => model.email)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.EditorFor(model => model.email)
+                    @Html.ValidationMessageFor(model => model.email)
 
-<h2>EditProfile</h2>
+                    <br /> <br />
+                    @Html.LabelFor(model => model.password)
+                    @Html.PasswordFor(model => model.password)
+                    @Html.ValidationMessageFor(model => model.password)
+                    <br /> <br />
+                    @Html.LabelFor(model => model.confirmPassword)
+                    @Html.PasswordFor(model => model.confirmPassword)
+                    @Html.ValidationMessageFor(model => model.confirmPassword)
+                    <br /> <br />
+                    @Html.LabelFor(model => model.username)
+                    @Html.EditorFor(model => model.username)
+                    @Html.ValidationMessageFor(model => model.username)
+                    <br /> <br />
+                    <input type="submit" value="Edit Profile" name="Command" />
+                    <br /> <br />
+                </p>
+            }
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+                <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+                <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+            }
 
-@using (Html.BeginForm("Upload", "Image", FormMethod.Post, new { enctype="multipart/form-data" }))
-{
-    <input type="file" name="file" id="file" />
-    <input type="checkbox" name="searchable" />
-    <br />
-    <p>Change Firstname</p>
-    @Html.TextBox("firstname")
-    <br />
-    <p>Change Lastname</p>
-    @Html.TextBox("lastname")
-    <br />
-    <p>Change City</p>
-    @Html.TextBox("city")
-    <br />
-    <p>Change Email</p>
-    @Html.TextBox("email")
-    <br />
-    <p>Change Password</p>
-    @Html.TextBox("password")
-    <br />
-    <p>Change Username</p>
-    @Html.TextBox("username")
-    <br />
-    <input type="submit" value="Upload Image" name="Command" />
-}
+            @using (Html.BeginForm("UploadImage", "Image", FormMethod.Post,
+            new { enctype = "multipart/form-data" }))
+            {
+                <input type='file' name='file' id='file' />
+                <input type="submit" value="Submit" />
+            }
+
+
+        </div>
+    </div>
 
