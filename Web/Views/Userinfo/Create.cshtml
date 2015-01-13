@@ -4,77 +4,76 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+<section id="loginForm">
+    <br/>
+    <h2>Register for free here.</h2>
 
-<h2>Create</h2>
+    @using (Html.BeginForm("RegisterUser", "HandleUser"))
+    {
+        <p class="nameText">
+            @Html.LabelFor(model => model.Firstname)
+            <br/>
+            @Html.EditorFor(model => model.Firstname)
+            @Html.ValidationMessageFor(model => model.Firstname)
+            <br/>
+            @Html.LabelFor(model => model.Lastname)
+            <br/>
+            @Html.EditorFor(model => model.Lastname)
+            @Html.ValidationMessageFor(model => model.Lastname)
+            <br/>
+            @Html.LabelFor(model => model.Username)
+            <br/>
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+            <span id="result" />
+            <br/>
+            @Html.LabelFor(model => model.Gender)
+            <br/>
+            @Html.EditorFor(model => model.Gender)
+            @Html.ValidationMessageFor(model => model.Gender)
+            <br/>
+            @Html.LabelFor(model => model.Email)
+            <br/>
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+            <br/>
+            @Html.LabelFor(model => model.Password)
+            <br/>
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+            <br/>
+            @Html.EditorFor(model => model.ConfirmPassword)
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            <br/>
+            @Html.LabelFor(model => model.City)
+            <br/>
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+            <br/>
+            @Html.LabelFor(model => model.Age)
+            <br/>
+            @Html.EditorFor(model => model.Age)
+            @Html.ValidationMessageFor(model => model.Age)
+            <br/>
+            @Html.LabelFor(model => model.img_path)
+            <br/>
+            @Html.EditorFor(model => model.img_path)
+            @Html.ValidationMessageFor(model => model.img_path)
+            <br/>
+            @Html.LabelFor(model => model.Searchable)
+            <br/>
+            @Html.EditorFor(model => model.Searchable)
+            @Html.ValidationMessageFor(model => model.Searchable)
+            <br/>
+        </p>
+        <input type="submit" value="Create"/>
+        <br/>
+    }
+</section>
 
-@using (Html.BeginForm("RegisterUser", "HandleUser"))
-{
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    }
 
-    @Html.LabelFor(model => model.Firstname)
-    <br />
-    @Html.EditorFor(model => model.Firstname)
-    @Html.ValidationMessageFor(model => model.Firstname)
-    <br />
-    @Html.LabelFor(model => model.Lastname)
-    <br />
-    @Html.EditorFor(model => model.Lastname)
-    @Html.ValidationMessageFor(model => model.Lastname)
-    <br />
-    @Html.LabelFor(model => model.Username)
-    <br />
-    @Html.EditorFor(model => model.Username)
-    @Html.ValidationMessageFor(model => model.Username)
-    <span id="result" />
-    <br />
-    @Html.LabelFor(model => model.Gender)
-    <br />
-    @Html.EditorFor(model => model.Gender)
-    @Html.ValidationMessageFor(model => model.Gender)
-    <br />
-    @Html.LabelFor(model => model.Email)
-    <br />
-    @Html.EditorFor(model => model.Email)
-    @Html.ValidationMessageFor(model => model.Email)
-    <br />
-    @Html.LabelFor(model => model.Password)
-    <br />
-    @Html.EditorFor(model => model.Password)
-    @Html.ValidationMessageFor(model => model.Password)
-    <br />
-    @Html.EditorFor(model => model.ConfirmPassword)
-    @Html.ValidationMessageFor(model => model.ConfirmPassword)
-    <br />
-    @Html.LabelFor(model => model.City)
-    <br />
-    @Html.EditorFor(model => model.City)
-    @Html.ValidationMessageFor(model => model.City)
-    <br />
-    @Html.LabelFor(model => model.Age)
-    <br />
-    @Html.EditorFor(model => model.Age)
-    @Html.ValidationMessageFor(model => model.Age)
-    <br />
-    @Html.LabelFor(model => model.img_path)
-    <br />
-    @Html.EditorFor(model => model.img_path)
-    @Html.ValidationMessageFor(model => model.img_path)
-    <br />
-    @Html.LabelFor(model => model.Searchable)
-    <br />
-    @Html.EditorFor(model => model.Searchable)
-    @Html.ValidationMessageFor(model => model.Searchable)
-    <br />
-
-    <input type="submit" value="Create" />
-    <br />
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

@@ -16,7 +16,13 @@ h4 {
 
 
 }
-
+.form-group {
+      font-family: verdana;
+    color: #3b3b3b;
+      padding: 0;
+    margin: 10px;
+    margin-left: 0;
+}
 body{
 	margin: 0;
 	padding: 0;

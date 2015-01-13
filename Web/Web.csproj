@@ -212,8 +212,6 @@
     <Content Include="App_Data\Dejting_log.ldf">
       <DependentUpon>Dejting.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\bg.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\sverige-flagga.png" />
@@ -221,11 +219,9 @@
     <Content Include="Content\loggedIn.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\images\memberbg.png" />
-    <Content Include="Content\Profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
